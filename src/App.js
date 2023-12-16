@@ -8,7 +8,7 @@ class App {
     const month = Number(monthAndDayOfWeek[0]);
     const dayOfWeek = monthAndDayOfWeek[1];
     const weekDayEmergencyWorkSchedule = await InputView.getWeekDayEmergencyWorkSchedule();
-    Console.print(weekDayEmergencyWorkSchedule);
+  
   }
 }
 

@@ -28,6 +28,8 @@ const InputView = {
         try {
             const input = await Console.readLineAsync(INPUT_MESSAGE.WEEKDAY_EMERGENCY_WORK_SCHEDULE);
             InputValidation.isNicknameOverlapped(input);
+            InputValidation.isNicknameTooShortOrTooLong(input);
+            InputValidation.isEmployeeCountTooSmallOrTooBig(input);
             return input.split(',');
         } catch (error) {
             Console.print(error.message);
@@ -64,6 +66,21 @@ const InputValidation = {
         const nicknameSet = new Set(nicknames);
         if(nicknames.length != nicknameSet.size){
             throw new Error(ERROR_MESSAGE.WRONG_INPUT_EMPLOYEE_OVERLAP);
+        }
+    },
+
+    isNicknameTooShortOrTooLong(input){
+        const nicknames = input.split(',');
+        const isTooShortOrTooLong = nicknames.some(nickname => nickname.trim().length > 5 || nickname.trim().length < 1);
+        if (isTooShortOrTooLong) {
+            throw new Error(ERROR_MESSAGE.WRONG_INPUT_EMPLOYEE_NICKNAME_TOO_SHORT_OR_TOO_LONG);
+        }
+    },
+
+    isEmployeeCountTooSmallOrTooBig(input){
+        const nicknames = input.split(',');
+        if(nicknames.length > 35 || nicknames.length < 5){
+            throw new Error(ERROR_MESSAGE.WRONG_INPUT_EMPLOYEE_COUNT_TOO_SMALL_OR_TO_BIG);
         }
     }
 }
