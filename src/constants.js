@@ -35,6 +35,10 @@ const ERROR_MESSAGE = {
     WRONG_INPUT_DAY_OF_THE_WEEK: Object.freeze(`[ERROR] 요일에는 [월, 화, 수, 목, 금, 토, 일] 중 하나가 입력되어야 합니다. 다시 입력해주세요.`),
 
     WRONG_INPUT_EMPLOYEE_OVERLAP: Object.freeze(`[ERROR] 같은 사원이 한 순번에 2번 이상 들어갈 수 없습니다. 평일 비상 근무 순번부터 다시 입력해주세요.`),
+
+    WRONG_INPUT_EMPLOYEE_NICKNAME_TOO_LONG: Object.freeze(`[ERROR] 사원의 닉네임은 5자를 넘을 수 없습니다. 평일 비상 근무 순번부터 다시 입력해주세요.`),
+
+    WRONG_INPUT_EMPLOYEE_COUNT_TOO_SMALL_OR_TO_BIG: Object.freeze(`[ERROR] 근무 순번에 등록되는 사원은 최소 5명, 최대 35명이어야 합니다.`),
 }
 
 const INPUT_MESSAGE = {
