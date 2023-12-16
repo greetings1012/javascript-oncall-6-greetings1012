@@ -1,5 +1,6 @@
 import InputView from './InputView.js';
-
+import EmergencyScheduleGenerator from './EmergencyScheduleGenerator.js';
+import OutputView from './OutputView.js';
 import {Console} from '@woowacourse/mission-utils';
 
 class App {
@@ -10,6 +11,8 @@ class App {
     const workSchedule = await InputView.getEmergencyWorkSchedule();
     const weekDaySchedule = workSchedule[0];
     const offDaySchedule = workSchedule[1];
+    const totalSchedule = EmergencyScheduleGenerator.generateEmergencySchedule(month, dayOfWeek, weekDaySchedule, offDaySchedule);
+    OutputView.printSchedule(month, totalSchedule);
   }
 }
 

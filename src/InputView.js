@@ -3,10 +3,9 @@ import {
 } from '@woowacourse/mission-utils';
 
 import {
-    MONTH,
     INPUT_MESSAGE,
     ERROR_MESSAGE,
-    DAY_OF_THE_WEEK,
+    DAY_OF_WEEK,
 } from './constants.js'
 
 const InputView = {
@@ -34,7 +33,7 @@ const InputView = {
             InputValidation.isNicknameOverlapped(offDaySchedule);
             InputValidation.isNicknameTooShortOrTooLong(offDaySchedule);
             InputValidation.isEmployeeCountTooSmallOrTooBig(offDaySchedule);
-            return [weekDaySchedule, offDaySchedule];
+            return [weekDaySchedule.split(','), offDaySchedule.split(',')];
         } catch (error) {
             Console.print(error.message);
             return await this.getEmergencyWorkSchedule();
@@ -61,7 +60,7 @@ const InputValidation = {
 
     isValidateDayOfWeek(input){
         const monthAndDayOfWeek = input.split(',');
-        if (!DAY_OF_THE_WEEK.includes(monthAndDayOfWeek[1])) {
+        if (!DAY_OF_WEEK.includes(monthAndDayOfWeek[1])) {
             throw new Error(ERROR_MESSAGE.WRONG_INPUT_DAY_OF_THE_WEEK);
         }
     },

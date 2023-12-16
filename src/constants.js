@@ -13,7 +13,7 @@ const MONTH = {
     12: 31
 }
 
-const DAY_OF_THE_WEEK = ['일', '월', '화', '수', '목', '금', '토']
+const DAY_OF_WEEK = ['일', '월', '화', '수', '목', '금', '토']
 
 const NATIONAL_HOLIDAY = {
     1: 1,
@@ -57,7 +57,7 @@ const OUTPUT_MESSAGE = {
 
 export {
     MONTH,
-    DAY_OF_THE_WEEK,
+    DAY_OF_WEEK,
     NATIONAL_HOLIDAY,
     ERROR_MESSAGE,
     INPUT_MESSAGE,
