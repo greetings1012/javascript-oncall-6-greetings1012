@@ -24,18 +24,23 @@ const InputView = {
         }
     },
 
-    async getWeekDayEmergencyWorkSchedule() {
+    async getEmergencyWorkSchedule() {
         try {
-            const input = await Console.readLineAsync(INPUT_MESSAGE.WEEKDAY_EMERGENCY_WORK_SCHEDULE);
-            InputValidation.isNicknameOverlapped(input);
-            InputValidation.isNicknameTooShortOrTooLong(input);
-            InputValidation.isEmployeeCountTooSmallOrTooBig(input);
-            return input.split(',');
+            const weekDaySchedule = await Console.readLineAsync(INPUT_MESSAGE.WEEKDAY_EMERGENCY_WORK_SCHEDULE);
+            InputValidation.isNicknameOverlapped(weekDaySchedule);
+            InputValidation.isNicknameTooShortOrTooLong(weekDaySchedule);
+            InputValidation.isEmployeeCountTooSmallOrTooBig(weekDaySchedule);
+            const offDaySchedule = await Console.readLineAsync(INPUT_MESSAGE.OFFDAY_EMERGENCY_WORK_SCHEDULE);
+            InputValidation.isNicknameOverlapped(offDaySchedule);
+            InputValidation.isNicknameTooShortOrTooLong(offDaySchedule);
+            InputValidation.isEmployeeCountTooSmallOrTooBig(offDaySchedule);
+            return [weekDaySchedule, offDaySchedule];
         } catch (error) {
             Console.print(error.message);
-            return await this.getWeekDayEmergencyWorkSchedule();
+            return await this.getEmergencyWorkSchedule();
         }
-    }
+    },
+
 }
 
 const InputValidation = {
