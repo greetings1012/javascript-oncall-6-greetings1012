@@ -4,9 +4,9 @@ import {Console} from '@woowacourse/mission-utils';
 
 class App {
   async run() {
-    
-    let month, dayOfWeek = await InputView.getMonthAndDayOfWeek();
-    Console.print(month + dayOfWeek);
+    const monthAndDayOfWeek = await InputView.getMonthAndDayOfWeek();
+    const month = Number(monthAndDayOfWeek[0]);
+    const dayOfWeek = monthAndDayOfWeek[1];
   }
 }
 

@@ -3,8 +3,10 @@ import {
 } from '@woowacourse/mission-utils';
 
 import {
+    MONTH,
     INPUT_MESSAGE,
-    ERROR_MESSAGE
+    ERROR_MESSAGE,
+    DAY_OF_THE_WEEK,
 } from './constants.js'
 
 const InputView = {
@@ -14,7 +16,8 @@ const InputView = {
             const input = await Console.readLineAsync(INPUT_MESSAGE.MONTH_DAY_OF_THE_WEEK);
             InputValidation.isValidateForm(input);
             InputValidation.isValidateMonth(input);
-            return input;
+            InputValidation.isValidateDayOfWeek(input);
+            return input.split(',');
         } catch (error) {
             Console.print(error.message);
             return await this.getMonthAndDayOfWeek();
@@ -30,13 +33,20 @@ const InputValidation = {
             throw new Error(ERROR_MESSAGE.WRONG_INPUT_MONTH_DAY_OF_THE_WEEK_FORM);
         }
     },
+
     isValidateMonth(input){
         const monthAndDayOfWeek = input.split(',');
-        if (isNaN(monthAndDayOfWeek[0]) || Number(monthAndDayOfWeek[0]) < 1 || Number(monthAndDayOfWeek[0]) > 12) {
+        if (isNaN(Number(monthAndDayOfWeek[0])) || Number(monthAndDayOfWeek[0]) < 1 || Number(monthAndDayOfWeek[0]) > 12) {
             throw new Error(ERROR_MESSAGE.WRONG_INPUT_MONTH);
         }
+    },
+
+    isValidateDayOfWeek(input){
+        const monthAndDayOfWeek = input.split(',');
+        if (!DAY_OF_THE_WEEK.includes(monthAndDayOfWeek[1])) {
+            throw new Error(ERROR_MESSAGE.WRONG_INPUT_DAY_OF_THE_WEEK);
+        }
     }
-    
 }
 
 export default InputView;

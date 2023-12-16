@@ -13,7 +13,7 @@ const MONTH = {
     12: 31
 }
 
-const DAY_OF_THE_WEEK = ['월', '화', '수', '목', '금', '토', '일']
+const DAY_OF_THE_WEEK = ['일', '월', '화', '수', '목', '금', '토']
 
 const NATIONAL_HOLIDAY = {
     1: 1,
@@ -32,7 +32,7 @@ const ERROR_MESSAGE = {
 
     WRONG_INPUT_MONTH: Object.freeze(`[ERROR] 월에는 1부터 12 사이의 숫자로 입력해야 합니다. 다시 입력해주세요.`),
 
-    WRONG_INPUT_DAY_OF_THE_WEEK: Object.freeze(`[ERROR] 요일에는 [월, 화, 수, 목, 금, 토, 일] 중 하나가 입력되어야 합니다. 다시 입력해주세요.`),
+    WRONG_INPUT_DAY_OF_THE_WEEK: Object.freeze(`[ERROR] 요일에는 [일, 월, 화, 수, 목, 금, 토] 중 하나가 입력되어야 합니다. 다시 입력해주세요.`),
 
     WRONG_INPUT_EMPLOYEE_OVERLAP: Object.freeze(`[ERROR] 같은 사원이 한 순번에 2번 이상 들어갈 수 없습니다. 평일 비상 근무 순번부터 다시 입력해주세요.`),
 
