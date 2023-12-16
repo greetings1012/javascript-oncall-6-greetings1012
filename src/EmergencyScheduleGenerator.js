@@ -31,7 +31,7 @@ const EmergencyScheduleGenerator = {
                     currentWorker = nextWorker;
                 }
             } 
-            else {
+            if(!isHoliday) {
                 currentWorker = totalWeekdaySchedule.shift();
                 if (lastWorker && lastWorker === currentWorker) {
                     const nextWorker = totalWeekdaySchedule.shift();
