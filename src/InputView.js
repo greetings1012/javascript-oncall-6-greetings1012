@@ -22,6 +22,17 @@ const InputView = {
             Console.print(error.message);
             return await this.getMonthAndDayOfWeek();
         }
+    },
+
+    async getWeekDayEmergencyWorkSchedule() {
+        try {
+            const input = await Console.readLineAsync(INPUT_MESSAGE.WEEKDAY_EMERGENCY_WORK_SCHEDULE);
+            InputValidation.isNicknameOverlapped(input);
+            return input.split(',');
+        } catch (error) {
+            Console.print(error.message);
+            return await this.getWeekDayEmergencyWorkSchedule();
+        }
     }
 }
 
@@ -45,6 +56,14 @@ const InputValidation = {
         const monthAndDayOfWeek = input.split(',');
         if (!DAY_OF_THE_WEEK.includes(monthAndDayOfWeek[1])) {
             throw new Error(ERROR_MESSAGE.WRONG_INPUT_DAY_OF_THE_WEEK);
+        }
+    },
+
+    isNicknameOverlapped(input){
+        const nicknames = input.split(',');
+        const nicknameSet = new Set(nicknames);
+        if(nicknames.length != nicknameSet.size){
+            throw new Error(ERROR_MESSAGE.WRONG_INPUT_EMPLOYEE_OVERLAP);
         }
     }
 }

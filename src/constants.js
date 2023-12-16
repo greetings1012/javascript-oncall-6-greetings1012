@@ -45,9 +45,9 @@ const INPUT_MESSAGE = {
 
     MONTH_DAY_OF_THE_WEEK: Object.freeze(`비상 근무를 배정할 월과 시작 요일을 입력하세요> `),
 
-    WEEKDAY_EMERGENCY_WORK_SCHEDULE: Object.freeze(`평일 비상 근무 순번대로 사원 닉네임을 입력하세요>`),
+    WEEKDAY_EMERGENCY_WORK_SCHEDULE: Object.freeze(`평일 비상 근무 순번대로 사원 닉네임을 입력하세요> `),
 
-    OFFDAY_EMERGENCY_WORK_SCHEDULE: Object.freeze(`휴일 비상 근무 순번대로 사원 닉네임을 입력하세요>`),
+    OFFDAY_EMERGENCY_WORK_SCHEDULE: Object.freeze(`휴일 비상 근무 순번대로 사원 닉네임을 입력하세요> `),
 }
 
 const OUTPUT_MESSAGE = {
