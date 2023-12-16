@@ -1,7 +1,6 @@
 import InputView from './InputView.js';
 import EmergencyScheduleGenerator from './EmergencyScheduleGenerator.js';
 import OutputView from './OutputView.js';
-import {Console} from '@woowacourse/mission-utils';
 
 class App {
   async run() {

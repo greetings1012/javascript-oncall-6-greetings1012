@@ -4,8 +4,6 @@ import {
     NATIONAL_HOLIDAY
 } from './constants.js'
 
-import { Console } from '@woowacourse/mission-utils';
-
 const EmergencyScheduleGenerator = {
 
     generateEmergencySchedule(month, dayOfWeek, weekDaySchedule, offDaySchedule) {
