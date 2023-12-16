@@ -23,14 +23,10 @@ const EmergencyScheduleGenerator = {
         let lastWorker = ''
         for (let day = 1; day <= totalDays; day++) {
             const currentDayOfWeek = (day + dayOfWeekInNumber - 1) % 7; // 요일 계산
-            const isHoliday = ((NATIONAL_HOLIDAY[month] && NATIONAL_HOLIDAY[month] === day) || (currentDayOfWeek == 6 || currentDayOfWeek == 0));
-            
+            const isHoliday = ((NATIONAL_HOLIDAY[month] && NATIONAL_HOLIDAY[month] === day) || (currentDayOfWeek == 6 || currentDayOfWeek == 0));  
             let currentWorker;
-
             if (isHoliday) {
                 currentWorker = totalOffdaySchedule.shift();
-
-                // 휴일 다음 평일 근무가 연속될 경우 순서를 바꿈
                 if (lastWorker && lastWorker === currentWorker) {
                     const nextWorker = totalOffdaySchedule.shift();
                     totalOffdaySchedule.unshift(currentWorker);
@@ -39,20 +35,15 @@ const EmergencyScheduleGenerator = {
             } 
             else {
                 currentWorker = totalWeekdaySchedule.shift();
-
-                // 평일 다음 휴일 근무가 연속될 경우 순서를 바꿈
                 if (lastWorker && lastWorker === currentWorker) {
                     const nextWorker = totalWeekdaySchedule.shift();
                     totalWeekdaySchedule.unshift(currentWorker);
                     currentWorker = nextWorker;
                 }
             }
-
-
             scheduleSet.add({ day, dayOfWeek: this.getKoreanDayOfWeek(currentDayOfWeek), name: currentWorker });
             lastWorker = currentWorker;
         }
-
         return scheduleSet;
     },
 
