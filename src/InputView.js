@@ -13,6 +13,7 @@ const InputView = {
         try {
             const input = await Console.readLineAsync(INPUT_MESSAGE.MONTH_DAY_OF_THE_WEEK);
             InputValidation.isValidateForm(input);
+            InputValidation.isValidateMonth(input);
             return input;
         } catch (error) {
             Console.print(error.message);
@@ -28,7 +29,14 @@ const InputValidation = {
         if (monthAndDayOfWeek.length != 2){
             throw new Error(ERROR_MESSAGE.WRONG_INPUT_MONTH_DAY_OF_THE_WEEK_FORM);
         }
+    },
+    isValidateMonth(input){
+        const monthAndDayOfWeek = input.split(',');
+        if (isNaN(monthAndDayOfWeek[0]) || Number(monthAndDayOfWeek[0]) < 1 || Number(monthAndDayOfWeek[0]) > 12) {
+            throw new Error(ERROR_MESSAGE.WRONG_INPUT_MONTH);
+        }
     }
+    
 }
 
 export default InputView;
